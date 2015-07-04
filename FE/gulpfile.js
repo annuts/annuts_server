@@ -6,12 +6,14 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
+var uglify  = require('gulp-uglify');
 
 var paths = {
-  sass: ['./scss/**/*.scss']
+  sass: ['./www/static/scss/*.scss'],
+  uglify: ['./www/static/js/*.js']
 };
 
-gulp.task('default', ['sass']);
+gulp.task('default', ['sass', 'uglify']);
 
 gulp.task('sass', function(done) {
   gulp.src('./www/static/scss/*.scss')
@@ -27,8 +29,16 @@ gulp.task('sass', function(done) {
     .on('end', done);
 });
 
+gulp.task('uglify', function () {
+  gulp.src('./www/static/js/*.js')
+      .pipe(uglify())
+      .pipe(rename({extname: '.min.js'}))
+      .pipe(gulp.dest('./www/js/'));
+});
+
 gulp.task('watch', function() {
   gulp.watch(paths.sass, ['sass']);
+  gulp.watch(paths.uglify, ['uglify']);
 });
 
 gulp.task('install', ['git-check'], function() {
