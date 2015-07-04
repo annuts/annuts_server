@@ -1,0 +1,2 @@
+1:在FE下创建 sudo npm install gulp --save-dev
+2:sudo npm install gulp-util bower gulp-concat gulp-minify-css gulp-rename shelljs gulp-sass --save-dev
