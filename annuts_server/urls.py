@@ -1,3 +1,4 @@
+#coding:utf-8
 """annuts_server URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -13,9 +14,19 @@ Including another URLconf
     1. Add an import:  from blog import urls as blog_urls
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.conf.urls import include, url
+
+from django.conf.urls import patterns, include, url
 from django.contrib import admin
+from django.conf import  settings
+
+from annuts_app import views as api_view
+
+api_patterns = [
+    url(r'^test/$', api_view.Test.as_view())
+]
+
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^api/', include(api_patterns))
 ]
