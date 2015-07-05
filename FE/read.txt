@@ -1,0 +1,9 @@
+0:安装nodejs,此步骤应该不用教程了吧～
+1:在FE下创建 sudo npm install gulp --save-dev
+2:sudo npm install gulp-util bower gulp-concat gulp-minify-css gulp-rename shelljs gulp-sass gulp-uglify --save-dev
+3:启动监听 gulp watch
+4:启动ionic测试服务器 ionic serve
+
+ps1：未压缩的数据存放在 www/static 分别对应 js scss 经过压缩后保存在 www/js下 index调用压缩后的min数据
+ps2: 如果没有安装过 ionic 请先安装 (sudo) npm install -g cordova ionic  如果长时间无响应考虑是否需要翻墙
+ps3： 安装安卓包……我也在研究……

@@ -1,0 +1,7 @@
+django==1.8.2
+celery==3.0.11
+django-celery==3.0.11
+redis==2.10.3
+requests==2.7.0
+django-redis-cache==0.10.0
+beautifulsoup4
