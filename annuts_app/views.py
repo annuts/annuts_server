@@ -10,6 +10,7 @@ class Test(BaseView):
         data = self._init_data(request)
         data['name'] = 'dewei'
         data['method'] = 'get'
+        print data
         return JSONResponse(data)
 
     def post(self, request):  # 需要 csrf_token 以后前端在BaseView中data里已经将csrf_token发送给了前端，通过他进行post请求
