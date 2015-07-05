@@ -22,9 +22,9 @@ class BaseView(View):
                 'is_auth': request.user.is_authenticated(),  # 验证是否登陆
                 'username': request.user.username,  # 用户名
                 'avatar':  '',  # 头像，
-                'gender': 0,
-                'city': '',
-                'community': ''
+                'gender': 0,  # 性别
+                'city': '',  # 城市
+                'community': ''  # 小区
             }
         }
 
