@@ -29,5 +29,5 @@ api_patterns = [
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^api/', include(api_patterns)),
-    url(r'^dashboard/', include('annuts_app.dashboard.urls'))
+    url(r'^dashboard/', include('dashboard.urls'))
 ]

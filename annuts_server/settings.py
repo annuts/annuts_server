@@ -38,7 +38,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'annuts_app'
+    'annuts_app',
+    'dashboard'
 )
 
 MIDDLEWARE_CLASSES = (
