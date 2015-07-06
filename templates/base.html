@@ -1,0 +1,70 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head lang="zh">
+    <meta charset="UTF-8">
+    <title>{% block title %}{%endblock%}--坚果dashboard</title>
+    <link rel="stylesheet" href="{% static 'dashboard/css/base.css' %}"/>
+    <link rel="stylesheet" href="{% static 'dashboard/css/bootstrap.min.css' %}" />
+    <script src="{% static 'dashboard/js/jquery-1.11.3.min.js' %}"></script>
+    <script src="{% static 'dashboard/js/bootstrap.min.js' %}"></script>
+    <style type="text/css">
+            body {
+                padding-top: 60px;
+                font-size: 13px;
+            }
+            .sidebar {
+                width: 200px;
+                float: left;
+                position: absolute;
+            }
+            .sidebar-nav {
+                padding: 9px 0;
+            }
+            .sidebar-nav li {
+                padding-left: 9px;
+            }
+
+    </style>
+    {% block head %}
+
+    {% endblock %}
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <p class="base-top-text">坚果 Dashboard</p>
+                <ul class="nav">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="sidebar">
+            {% block sidebar %}
+            {% endblock %}
+        </div>
+
+    <div style="padding-left: 230px">
+        <div class='info-box'>
+            {% block info %}{% endblock %}
+        </div>
+
+    <div style="padding-top: 4px">
+        {% block content %}{% endblock %}
+    </div>
+        <hr/>
+        <footer>
+            <p>Powered by
+                <a href="http://twitter.github.com/bootstrap/">Bootstrap</a>
+            <p>
+            <p>&copy; 坚果 2015</p>
+        </footer>
+    </div>
+
+    {% block foot %}
+    {% endblock %}
+
+</body>
+</html>

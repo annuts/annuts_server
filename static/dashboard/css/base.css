@@ -1,0 +1,78 @@
+div.chart {
+    height: 300px;
+    margin: 40px 0;
+    width: 800px;
+}
+div.chart-l {
+    height: 400px;
+}
+button.close {
+    background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    cursor: pointer;
+    padding: 0;
+}
+.h3-container {
+    border-bottom: 1px solid #EEEEEE;
+    padding: 9px 0;
+    margin-bottom: 18px;
+}
+.h3-container h3 {
+    margin: 0;
+    line-height: 30px;
+}
+.clear {
+    clear: both;
+}
+.float-left {float: left;}
+.float-right {float: right;}
+.green { color: #0f0; }
+.red { color: #f00; }
+.blue { color: #00f; }
+.white { color: #fff; }
+.gray { color: #999; }
+
+#retention {
+    height: 600px;
+}
+
+#retention-hint {
+    margin: 30px 0 0 30px;
+    font-weight: bold;
+}
+
+.title_large {
+    font-size: 28px;
+    border-bottom: 1px solid #999;
+    line-height: 48px;
+}
+.underline {
+    border-bottom: 1px solid #CCCCCC;
+}
+.popup_title {
+    font-size: 16px;
+    line-height: 32px;
+}
+.bt-tab-content {
+    background-color: white;
+    padding: 18px;
+}
+.bt-t-span1 { width: 40px;}
+.bt-t-span2 { width: 80px;}
+.bt-t-span3 { width: 120px;}
+.bt-t-span4 { width: 160px;}
+.bt-t-span5 { width: 200px;}
+.bt-t-span6 { width: 240px;}
+.bt-alert {z-index: 999;}
+
+.remove_trip_tag {color: white}
+.top-tags-select {
+    float: left;
+    margin-right: 6px;
+}
+ul.errorlist {color: red}
+
+a {text-decoration:none; color:#2894FF}
+a:hover {color:#0080FF}
+
+.base-top-text { line-height:40px; font-size:18px; font-weight:bold; color:#ffffff; }
