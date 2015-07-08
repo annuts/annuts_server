@@ -28,6 +28,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+QINIU_ACCESS_KEY = 'LmFtUSlKIF8p0briHvAv0S07oT3Xlodp2Wga71_C'
+QINIU_SECRET_KEY = 'yH9efgzEhaXLDOnZ7D1UYckf0pmUgKDJwkel-3hm'
 
 # Application definition
 
@@ -38,8 +40,18 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'annuts_app'
+    'annuts_app',
+    'rest_framework',
+    'api',
 )
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny'
+    ]
+}
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
