@@ -13,17 +13,17 @@ class UserProfile(models.Model):
     community = models.ForeignKey('Community', related_name='user_community', null=True)
     
     def __unicode__(self):
-	return self.user
+	    return self.user
 
 class City(models.Model):
     name = models.CharField(max_length=50, db_index=True)
     
     def __unicode__(self):
-	return self.name
+	    return self.name
 
 class Community(models.Model):
     city = models.ForeignKey('City', related_name='city_community')
     name = models.CharField(max_length=50, db_index=True)
 
     def __unicode__(self):
-	return self.name
+	    return self.name

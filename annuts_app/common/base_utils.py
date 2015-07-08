@@ -38,9 +38,9 @@ class BaseView(View):
         return data
 
 def obj_serializers(model_obj, muti=False, type='json'):  # django的model对象转成json形式,muti代表model_obj是单个多想还是多个
-    if muti == True:
+    if muti == True:  # 集合
         data = serializers.serialize(type, model_obj)
         return json.loads(data)
-    else:
+    else:  # 单个
         data = serializers.serialize(type, [model_obj])
         return json.loads(data)[0]
