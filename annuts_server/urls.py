@@ -23,6 +23,6 @@ from django.conf import  settings
 
 urlpatterns = [
     url(r'^', include('annuts_app.urls')),
-    url(r'^dashboard/', include('annuts_app.dashboard.urls')),
+    url(r'^dashboard/', include('dashboard.urls')),
     url(r'^api/', include('api.urls')),
 ]

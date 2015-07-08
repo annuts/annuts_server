@@ -4,7 +4,7 @@ __author__ = 'zhangdewei'
 from django.conf.urls import patterns, include, url
 from django.conf import  settings
 
-from annuts_app.dashboard import views as dashboard_views
+from dashboard import views as dashboard_views
 
 urlpatterns = [
     url(r'^base/$', dashboard_views.Base.as_view())

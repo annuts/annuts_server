@@ -1,4 +1,4 @@
-ed:   annuts_app/dashboard/urls.py#coding:utf-8
+#coding:utf-8
 __author__ = 'zhangdewei'
 
 from django.http import HttpResponse
