@@ -7,5 +7,5 @@ from django.conf import  settings
 from dashboard import views as dashboard_views
 
 urlpatterns = [
-    url(r'^base/$', dashboard_views.Base.as_view())
+    url(r'^test/$', dashboard_views.Base.as_view())
 ]

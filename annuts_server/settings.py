@@ -1,7 +1,8 @@
-
+from __future__ import absolute_import
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os, re
+
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ROOT = re.sub(r'/annuts_server/?$', '/', os.path.dirname(__file__))
@@ -18,8 +19,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+#qiqiu
 QINIU_ACCESS_KEY = 'LmFtUSlKIF8p0briHvAv0S07oT3Xlodp2Wga71_C'
 QINIU_SECRET_KEY = 'yH9efgzEhaXLDOnZ7D1UYckf0pmUgKDJwkel-3hm'
+
+#jpush
+JPUSH_APP_KEY = '2be0e84d47c236b4f579e208'
+JPUSH_MASTER_SECRET = '77271a9d92565359e7508fc3'
 
 # Application definition
 
@@ -33,8 +39,21 @@ INSTALLED_APPS = (
     'annuts_app',
     'rest_framework',
     'api',
+    #'kombu.transport.django.KombuAppConfig',
     'dashboard'
 )
+
+# Celery settings
+
+CELERY_IMPORTS = ('annuts_app.tasks.an_push')
+
+BROKER_URL = 'redis://localhost:6379/0'
+
+#: Only add pickle to this list if your broker is secured
+#: from unwanted access (see userguide/security.html)
+CELERY_ACCEPT_CONTENT = ['json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
@@ -43,6 +62,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.AllowAny'
     ]
 }
+
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -90,6 +110,10 @@ DATABASES = {
 	'PORT': '3306'
     }
 }
+
+CELERY_REDIS_HOST = "localhost"
+
+BROKER_URL = "redis://%s:6379/2" % CELERY_REDIS_HOST
 
 
 # Internationalization

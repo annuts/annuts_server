@@ -5,7 +5,7 @@ from django.views.generic import View
 from django.shortcuts import render
 
 class Base(View):
-    TEMPLATE = 'base.html'
+    TEMPLATE = 'dashboard/test.html'
 
     def get(self, request):
 
