@@ -19,6 +19,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+#api sign
+SIGN = 'conankingsANNUTS@8351361664879801DEWEI'
+
 #qiqiu
 QINIU_ACCESS_KEY = 'LmFtUSlKIF8p0briHvAv0S07oT3Xlodp2Wga71_C'
 QINIU_SECRET_KEY = 'yH9efgzEhaXLDOnZ7D1UYckf0pmUgKDJwkel-3hm'
