@@ -3,6 +3,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
     avatar = models.CharField(max_length=255)  # 七牛头像
@@ -15,15 +16,17 @@ class UserProfile(models.Model):
     def __unicode__(self):
         return self.user
 
+
 class City(models.Model):
     name = models.CharField(max_length=50, db_index=True)
     
     def __unicode__(self):
-	return self.name
+        return self.name
+
 
 class Community(models.Model):
     city = models.ForeignKey('City', related_name='city_community')
     name = models.CharField(max_length=50, db_index=True)
 
     def __unicode__(self):
-	return self.name
+        return self.name
