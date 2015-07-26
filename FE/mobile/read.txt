@@ -1,0 +1,2 @@
+
+sudo npm install gulp-util glob minimatch balanced-match lodash concat-map gulp-concat gulp-minify-css gulp-rename shelljs gulp-sass gulp-uglify --save-dev

@@ -1,0 +1,74 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html lang="zh">
+<head>
+{% block head %}
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="HandheldFriendly" content="True">
+
+    {% block viewport %}
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    {% endblock %}
+
+    {# 页面title，可以继承替换 #}
+    <title>{% block title %}坚果社区{% endblock %}</title>
+
+    {% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'mobile/css/base.min.css' %}">
+    {% endblock %}
+
+    {% block css_ex %}
+    {% endblock %}
+
+    {% block app_header %}
+    {% endblock %}
+
+    <script>
+    //数据中心方法
+    (function(){
+        var BT = {};
+        var _data = {};
+        BT.context = function (key, value) {
+            var length = arguments.length;
+            if (length > 1) {
+                _data[key] = value;
+            } else if (length == 1) {
+                if (typeof key == 'object') {
+                    for (var k in key) {
+                        if (key.hasOwnProperty(k)) {
+                            _data[k] = key[k];
+                        }
+                    }
+                } else {
+                    return _data[key];
+                }
+            }
+        };
+        'BT' in window || (window.BT = BT);
+    })();
+    var MAP_URL = "http://{{ GOOGLE_MAP_DOMAIN }}/maps/api/js?sensor=false&language=zh";
+    </script>
+    {% endblock %}
+</head>
+<body data-csrf="{{csrf_token}}">
+    {% block content %}{% endblock %}
+
+    {% block js_zepto %}
+    <script src="{% static 'mobile/js/zepto.min.css' %}"></script>
+    {% endblock %}
+
+    {% block js_touch %}
+    <script src="{% static 'mobile/js/zepto-touch.js' %}"></script>
+    {% endblock %}
+
+    {% block js_swipe %}
+    <script src="{% static 'mobile/js/swipe.js' %}"></script>
+    {% endblock %}
+
+    {% block js %}
+
+    {% endblock %}
+
+</body>
+</html>
