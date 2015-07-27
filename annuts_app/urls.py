@@ -7,5 +7,6 @@ from django.conf import  settings
 from annuts_app import views as annuts_view
 
 urlpatterns = [
-    url(r'^test/$', annuts_view.Test.as_view())
+    url(r'^test/$', annuts_view.Test.as_view()),
+    url(r'^test1/$', annuts_view.Test2.as_view()),
 ]

@@ -2,7 +2,7 @@
 {% load staticfiles %}
 {% block title %}test title{% endblock %}
 {% block css_ex %}
-    <link href="{% static 'mobile/css/test1.min.css' %}" rel="stylesheet" />
+    <link href="{% static 'mobile/css/test1.min.css' %}?{{base_times}}" rel="stylesheet" />
 {% endblock %}
 
 {% block header %}
