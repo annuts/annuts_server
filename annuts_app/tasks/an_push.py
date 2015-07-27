@@ -1,6 +1,7 @@
 __author__ = 'zhangdewei'
 
-import jpush as jpush
+import jpush as JPUSH
+from django.conf import settings
 from annuts_server import celery_app
 
 @celery_app.task(bind=True)
@@ -12,9 +13,9 @@ def push_message(**kwargs):
     if not kwargs.get('ios_content') and not kwargs.get('android_content'):
         print 'no message'
         return False
-    jpush = jpush.JPush(settings.JPUSH_APP_KEY, settings.JPUSH_MASTER_SECRET)
+    jpush = JPUSH.JPush(settings.JPUSH_APP_KEY, settings.JPUSH_MASTER_SECRET)
 
-    push = _jpush.create_push()
+    push = jpush.create_push()
     push.audience = jpush.all_
     ios_msg = jpush.ios(alert=kwargs.get('ios_content'), badge="+1", extras={'k1':'v1'}, sound_disable=True)
     android_msg = jpush.android(alert=kwargs.get('android_content'))
