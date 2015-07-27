@@ -6,8 +6,11 @@ from django.views.generic import View
 from django.middleware.csrf import get_token
 from django.core import serializers
 
+from Crypto.Cipher import ARC4
+
 import json
 import time
+import struct
 
 class JSONResponse(HttpResponse):
     """JSON response class."""
@@ -54,3 +57,23 @@ def obj_serializers(model_obj, muti=False, type='json'):  # django的model对象
     else:  # 单个
         data = serializers.serialize(type, [model_obj])
         return json.loads(data)[0]
+
+
+class IdCipher(object):
+    secret_key = 'jianGuoSheQu'
+    MAX = 4294967295
+
+    def encrypt(self, id):
+        obj = ARC4.new(self.secret_key)
+        pass_id = obj.encrypt(struct.pack('I', id))
+        return struct.unpack('I', pass_id)[0]
+
+    def decrypt(self, pass_id):
+        obj = ARC4.new(self.secret_key)
+        id = obj.decrypt(struct.pack('I', pass_id))
+        return struct.unpack('I', id)[0]
+
+
+id_cipher = IdCipher()
+id_encrypt = id_cipher.encrypt
+id_decrypt = id_cipher.decrypt
