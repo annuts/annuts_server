@@ -1,7 +1,7 @@
 #coding:utf-8
 from django.shortcuts import render
 from django.contrib.auth.models import User
-from common.base_utils import JSONResponse, BaseView
+from common.base_utils import JSONResponse, BaseView, Html5BaseView
 
 import json
 
@@ -18,3 +18,12 @@ class Test(BaseView):
 
     def delete(self, request):
         return JSONResponse({'method': 'delete'})
+
+
+class Test2(Html5BaseView):
+    TEMPLATE = 'mobile/test1.html'
+
+    def get(self, request):
+        data = self._init_data(request)
+
+        return render(request, self.TEMPLATE, data)

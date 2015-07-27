@@ -7,6 +7,7 @@ from django.middleware.csrf import get_token
 from django.core import serializers
 
 import json
+import time
 
 class JSONResponse(HttpResponse):
     """JSON response class."""
@@ -34,6 +35,15 @@ class BaseView(View):
             if request.user.userprofile.city:
                 data['user']['city'] = request.user.userprofile.city.name
                 data['user']['community'] = request.user.userprofile.community.name
+
+        return data
+
+
+class Html5BaseView(View):
+    def _init_data(self, request):
+        data = {
+            'base_times': time.time()  # 这个 times 想用来对前端更新的js活着css等进行清理缓存之用，也可以用语其他方面
+        }
 
         return data
 
