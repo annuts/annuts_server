@@ -1,0 +1,24 @@
+{% extends "mobile/base.html" %}
+{% load staticfiles %}
+{% block title %}test title{% endblock %}
+{% block css_ex %}
+    <link href="{% static 'mobile/css/test1.min.css' %}" rel="stylesheet" />
+{% endblock %}
+
+{% block header %}
+
+{% endblock %}
+
+{% block content %}
+<p class="color-test">这是一个测试</p>
+<p class="color-test">这是第二个测试</p>
+<p class="color-test">这是第三个测试</p>
+<p class="color-test">出现问题后的测试</p>
+<p class="color-test">出现问题后的又一次测试</p>
+<p class="color-test">bug解除的再次实验</p>
+<p class="color-test">haha</p>
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}

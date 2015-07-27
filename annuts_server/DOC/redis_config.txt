@@ -1,0 +1,16 @@
+daemonize yes
+pidfile /usr/local/redis/redis.pid
+port 6379
+timeout 300
+loglevel debug
+logfile /usr/local/redis/redis.log
+databases 10
+save 900 1
+save 300 10
+save 60 10000
+rdbcompression no
+dbfilename dump.rdb
+dir /usr/local/redis/
+appendonly no
+appendfsync always
+#glueoutputbuf yes
