@@ -50,8 +50,9 @@ gulp.task('img', function(){
 gulp.task('watch', function() {
   gulp.watch(paths.sass, ['sass']);
   gulp.watch(paths.uglify, ['uglify']);
-  gulp.watch(paths.img, ['img']);
-  gulp.watch(paths.html, ['html']);
+  gulp.watch(paths.html, function(){
+    gulp.run('default');
+  });
 });
 
 gulp.task('install', ['git-check'], function() {

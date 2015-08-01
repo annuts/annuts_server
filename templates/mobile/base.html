@@ -15,7 +15,7 @@
     <title>{% block title %}坚果社区{% endblock %}</title>
 
     {% block css %}
-    <link rel="stylesheet" type="text/css" href="{% static 'mobile/css/base.min.css' %}?{{base_times}}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mobile/css/base.min.css' %}">
     {% endblock %}
 
     {% block css_ex %}
@@ -53,16 +53,17 @@
 </head>
 <body data-csrf="{{csrf_token}}">
     {% block content %}{% endblock %}
-    {% js_zepto %}
-    <script src="{% static 'mobile/js/zepto.min.js' %}?{{base_times}}"></script>
+
+    {% block js_zepto %}
+    <script src="{% static 'mobile/js/zepto.min.js' %}"></script>
     {% endblock %}
 
     {% block js_touch %}
-    <script src="{% static 'mobile/js/zepto-touch.min.js' %}?{{base_times}}"></script>
+    <script src="{% static 'mobile/js/zepto-touch.js' %}"></script>
     {% endblock %}
 
     {% block js_swipe %}
-    <script src="{% static 'mobile/js/swipe.min.js' %}?{{base_times}}"></script>
+    <script src="{% static 'mobile/js/swipe.js' %}"></script>
     {% endblock %}
 
     {% block js %}
