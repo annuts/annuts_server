@@ -21,3 +21,6 @@ DATABASES = {
     }
 }
 
+# mongodb
+MONGDO_HOST = '192.168.33.10'
+MONGDO_PORT = 27017
