@@ -1,3 +1,34 @@
+1 安装redis brew install redis
+2 安装mysql brew install mysql (或者试试 brew install mariadb)
+3 如果是 mac 安装虚拟机 vagrant 用来存放mongo数据， 步骤如下：
+  1:下载并安装virtualbox  https://www.virtualbox.org/wiki/Downloads （下载mac版本）
+  2:下载并安装vagrantup  http://downloads.vagrantup.com/  （下载max版本）
+  3:下载ubuntu虚拟机  http://files.vagrantup.com/precise64.box
+  4:将镜像存放到  ~/box/precise64.box
+  5:进入 ~/box 执行 vagrant box add 你的虚拟机名称 precise64.box
+  6:创建 并 切换到 ~/dev ，执行虚拟机初始化 vagrant init 你刚才的虚拟机名称
+  7:启动虚拟机 在~/dev 目录下 vagrant up
+  8:链接虚拟机 vagrant ssh
+  9:修改虚拟机网址 在 /vagrant 下修改 Vagrantfile 打开 config.vm.network :private_network, ip: "192.168.33.10"，并重启虚拟机
+    vagrant reload
+
+4 安装 tokutek （mongo的一个升级版），请在你的ubuntu或虚拟机下执行以下命令：
+  1:sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key 505A7412
+    检查下当前状态 ：
+    $ sudo apt-key finger 505A7412
+    /etc/apt/trusted.gpg
+    --------------------
+    pub   2048R/505A7412 2014-01-27
+          Key fingerprint = DA56 C65D 432E DAB1 F183  AA6F 70A4 E325 505A 7412
+    uid                  Timothy Callaghan (Tokutek Key) <tim@tokutek.com>
+    sub   2048R/46A1A9B9 2014-01-27
+  2:echo "deb [arch=amd64] http://s3.amazonaws.com/tokumx-debs $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/tokumx.list
+  3:sudo apt-get update, sudo apt-get install tokumx
+  4:from /etc/mongodb.conf to /etc/tokumx.conf.  如果已经存在则不需要了
+  5:启动，重启，关闭 sudo service tokumx start/restart/stop
+  6:启动 ： mongo
+
+
 annuts_server 中的 settings为线上版本
 本地开发使用local_config 进行对接，如：python manage.py runserver 0.0.0.0:8000 --settings=annuts_server.local_config
 

@@ -35,6 +35,10 @@ REDIS_DEFAULT_DB = 0
 REDIS_HOST = '127.0.0.1'
 REDIS_PORT = 6379
 
+# mongodb
+MONGDO_HOST = '127.0.0.1'
+MONGDO_PORT = 27017
+
 # Application definition
 
 INSTALLED_APPS = (
