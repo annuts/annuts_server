@@ -1,0 +1,41 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>坚果登录</title>
+    <link rel="stylesheet" href="{% static 'dashboard/css/base.css' %}"/>
+    <link rel="stylesheet" href="{% static 'dashboard/css/bootstrap.min.css' %}" />
+    <script src="{% static 'dashboard/js/jquery-1.11.3.min.js' %}"></script>
+    <script src="{% static 'dashboard/js/bootstrap.min.js' %}"></script>
+    <style>
+        .form {
+            margin:15% auto;
+            padding:20px;
+            width:25%;
+
+            box-shadow:1px 1px 5px #8C8C8C;
+        }
+        .submit {
+            display:block;
+            margin:15px auto 0 auto;
+            width:80%;
+        }
+    </style>
+</head>
+<body>
+    <div class="form">
+        <form method="POST">{% csrf_token %}
+            <div class="form-group">
+                <label for="username">username</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="username">
+            </div>
+            <div class="form-group">
+                <label for="username">password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="password">
+            </div>
+            <input type="submit" value='登录' class="btn btn-success submit"/>
+        </form>
+    </div>
+</body>
+</html>

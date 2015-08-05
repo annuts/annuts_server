@@ -6,6 +6,7 @@ __author__ = 'zhangdewei'
 
 from django.shortcuts import redirect
 from django.http import Http404
+from django.conf import settings
 
 
 def perm(**kwargs):  # 该装饰器用于验证该用户是否有访问某个页面的权限
@@ -29,6 +30,13 @@ def perm(**kwargs):  # 该装饰器用于验证该用户是否有访问某个页
 def is_superuser(func):  # 单纯的验证是否是超级用户（员工）
     def wrapped_func(request, *args):
         if not (request.request.user.is_authenticated() or request.request.user.is_superuser):
-            return Http404
+            raise Http404
+        return func(request, *args)
+    return wrapped_func
+
+def login_required(func):
+    def wrapped_func(request, *args):
+        if not request.request.user.is_authenticated():
+            return redirect(settings.LOGIN_DASHBOARD_URL)
         return func(request, *args)
     return wrapped_func

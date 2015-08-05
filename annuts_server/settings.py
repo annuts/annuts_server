@@ -150,4 +150,4 @@ STATICFILES_DIRS = (
     os.path.join(ROOT, 'static'),
 )
 
-print os.path.join(ROOT, 'static')
+LOGIN_DASHBOARD_URL = '/dashboard/login/'
