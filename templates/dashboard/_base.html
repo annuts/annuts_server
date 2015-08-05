@@ -28,6 +28,10 @@
                 font-weight:bold;
                 text-align:center;
             }
+            .logout {
+                float:right;
+                color:#ffffff;
+            }
 
     </style>
     {% block head %}
@@ -37,7 +41,12 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container-fluid">
-                <p class="base-top-text">坚果 Dashboard</p>
+                <p class="base-top-text">
+                    <span>坚果 Dashboard</span>
+                    {% if user.is_authenticated %}
+                    <a class="logout" href="/dashboard/logout/">退出</a>
+                    {% endif %}
+                </p>
                 <ul class="nav">
 
                 </ul>
